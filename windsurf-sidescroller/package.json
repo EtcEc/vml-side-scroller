@@ -2,7 +2,7 @@
   "name": "windsurf-sidescroller",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://<YOUR_GITHUB_USERNAME>.github.io/windsurf-sidescroller",
+  "homepage": "https://etcec.github.io/vml-side-scroller",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
