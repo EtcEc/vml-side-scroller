@@ -1,0 +1,136 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #2c3e50;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes scrollBackground {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -400px 0;
+    }
+}
+
+.game-container {
+    width: 100vw;
+    height: 600px;
+    margin-top: 50px;
+    position: relative;
+    overflow: hidden;
+    border-top: 8px solid #2980b9;
+    border-bottom: 8px solid #2980b9;
+    background-color: #1e3a5f;
+    background-image: 
+        /* Circuit grid */
+        linear-gradient(90deg, rgba(52, 152, 219, 0.2) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(52, 152, 219, 0.2) 1px, transparent 1px),
+        /* Diagonal tech lines */
+        linear-gradient(45deg, rgba(52, 152, 219, 0.1) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(52, 152, 219, 0.1) 25%, transparent 25%),
+        /* Tech dots */
+        radial-gradient(circle at 50px 50px, rgba(52, 152, 219, 0.15) 8px, transparent 8px),
+        /* Larger circuit nodes */
+        radial-gradient(circle at 150px 150px, rgba(52, 152, 219, 0.2) 15px, transparent 15px),
+        /* Hexagonal pattern */
+        linear-gradient(60deg, rgba(52, 152, 219, 0.1) 25%, transparent 25%),
+        linear-gradient(-60deg, rgba(52, 152, 219, 0.1) 25%, transparent 25%),
+        /* Glow effect base */
+        radial-gradient(circle at center, rgba(52, 152, 219, 0.1) 0%, rgba(30, 58, 95, 0) 70%);
+    background-size: 
+        50px 50px,
+        50px 50px,
+        100px 100px,
+        100px 100px,
+        100px 100px,
+        300px 300px,
+        100px 100px,
+        100px 100px,
+        100% 100%;
+    animation: scrollBackground 20s linear infinite;
+}
+
+/* Add subtle scanlines */
+.game-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(52, 152, 219, 0.03) 0px,
+        rgba(52, 152, 219, 0.03) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+}
+
+/* Ground line */
+.game-container::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 440px;
+    width: 100%;
+    height: 4px;
+    background-color: #3498db;
+    box-shadow: 
+        0 0 10px #3498db,
+        0 0 20px rgba(52, 152, 219, 0.5);
+}
+
+h1 {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    margin: 0;
+    color: #3498db;
+    font-size: 32px;
+    text-shadow: 
+        0 0 10px rgba(52, 152, 219, 0.5),
+        0 0 20px rgba(52, 152, 219, 0.3);
+    z-index: 1;
+}
+
+.game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #3498db;
+    background-color: rgba(30, 58, 95, 0.95);
+    padding: 40px 80px;
+    border-radius: 20px;
+    border: 2px solid #3498db;
+    box-shadow: 
+        0 0 20px rgba(52, 152, 219, 0.3),
+        0 0 40px rgba(52, 152, 219, 0.2);
+    z-index: 100;
+}
+
+.game-over h2 {
+    font-size: 72px;
+    margin: 0 0 30px 0;
+    text-shadow: 
+        0 0 20px rgba(52, 152, 219, 0.5),
+        0 0 40px rgba(52, 152, 219, 0.3);
+}
+
+.game-over p {
+    font-size: 36px;
+    margin: 15px 0;
+    text-shadow: 
+        0 0 10px rgba(52, 152, 219, 0.5),
+        0 0 20px rgba(52, 152, 219, 0.3);
+}
